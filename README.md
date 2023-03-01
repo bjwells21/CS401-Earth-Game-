@@ -1,3 +1,3 @@
 # CS401-Earth-Game-
-Contributors:
+Contributors: <br/>
 Rohan Bierneni (rbierneni@horizon.csueastbay.edu)
