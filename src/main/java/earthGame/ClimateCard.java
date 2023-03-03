@@ -5,7 +5,7 @@ enum Climate {
     DRY,
     TEMPERATE,
     CONTINENTAL,
-    POLAR;
+    POLAR
 }
 
 public class ClimateCard extends Card{
