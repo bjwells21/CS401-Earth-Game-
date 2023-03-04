@@ -1,4 +1,4 @@
-package earthGame;
+package earthGame.Model;
 
 import java.util.ArrayList;
 
@@ -19,6 +19,17 @@ class Player{
         firstPlayer = isFirst;
         finishFirst = false;
     }
+    void addCompost(int numCompost){
+        compost+=numCompost;
+    }
+
+    int getCompost(){
+        return compost;
+    }
+
+    int getPoints(){
+        return totalVPoints;
+    }
 
     void addPoints (int points) {
         totalVPoints+=points;
@@ -36,15 +47,14 @@ class Player{
         soil-=numOfSoil;
     }
 
-    //void addToHand(int numberOfCards) {
-    //	for(int i=0;i<numberOfCards;i++){
-    // 		hand.add(Draw());
-    //}}
+    void addToHand(int numberOfCards) {
+        hand.add(randomDrawCard());
+        hand.add(randomDrawCard());
+    }
 
-    /* void viewHand(){
-     * 	for (int i=0;i<hands.size();i++){
-     * 		printCard(hands.get(i));
-     * }
-     * }
-     */
+    void viewHand(){
+        for (int i=0;i<hand.size();i++){
+            toString(hand.get(i));
+        }
+    /
 }
