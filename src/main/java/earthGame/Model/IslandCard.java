@@ -1,4 +1,4 @@
-package earthGame;
+package earthGame.Model;
 
 enum Islands {
     MAUI,
@@ -9,7 +9,7 @@ enum Islands {
     TAHITI
 }
 
-public class IslandCard extends Card{
+public class IslandCard extends Card {
     private int victoryPoints;
     private String abilityColor;
     private Islands i;

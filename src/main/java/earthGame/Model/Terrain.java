@@ -1,4 +1,4 @@
-package earthGame;
+package earthGame.Model;
 
 enum Terrains {
     PLATEAU,
