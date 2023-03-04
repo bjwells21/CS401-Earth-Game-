@@ -1,4 +1,4 @@
-package earthGame;
+package earthGame.Model;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -17,7 +17,7 @@ public class cardDeck<T> {
         }
     }
 
-    int returnDeckSize(){
+     int returnDeckSize(){
 
         return cards.size();
     }
