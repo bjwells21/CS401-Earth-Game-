@@ -45,6 +45,10 @@ public class ClimateCard extends Card {
         return new ClimateCard(tmp.name());
     }
 
+    public String toString(){
+        return "Climate card: \nName: " + c.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) + "\n";
+    }
+
     public void abilityEffect(){
 
     }
