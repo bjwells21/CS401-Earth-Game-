@@ -32,6 +32,10 @@ public class cardDeck<T> {
        }
     }
 
+    void addToDeck(){
+        //this is a method to add to the deck
+    }
+
     boolean isDeckEmpty(){
         return cards.isEmpty();
     }
