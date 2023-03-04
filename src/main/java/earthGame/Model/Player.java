@@ -48,8 +48,8 @@ class Player{
     }
 
     void addToHand(int numberOfCards) {
-        hand.add(randomDrawCard());
-        hand.add(randomDrawCard());
+        hand.add(IslandCard.randomDrawCard());
+        hand.add(ClimateCard.randomDrawCard());
     }
 
     void viewHand() {
