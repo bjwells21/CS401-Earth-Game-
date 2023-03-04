@@ -66,6 +66,11 @@ public class IslandCard extends Card{
         }
     }
 
+    public String toString(){
+        return "Island card: \nName: " + i.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) +
+                "\nAbility's Color: " + getAbilityColor() + "\n";
+    }
+
     public int getVictoryPoints() {
         return victoryPoints;
     }
