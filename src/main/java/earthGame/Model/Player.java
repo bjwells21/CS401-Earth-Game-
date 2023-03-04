@@ -52,9 +52,9 @@ class Player{
         hand.add(randomDrawCard());
     }
 
-    void viewHand(){
-        for (int i=0;i<hand.size();i++){
+    void viewHand() {
+        for (int i = 0; i < hand.size(); i++) {
             toString(hand.get(i));
         }
-    /
+    }
 }
