@@ -1,5 +1,7 @@
 package earthGame.Model;
 
+import java.util.Random;
+
 enum Islands {
     MAUI,
     MAJORCA,
@@ -18,11 +20,38 @@ public class IslandCard extends Card {
         victoryPoints = 0;
         abilityColor = "";
     }
-    public IslandCard(int victoryPoints, String abilityColor, String name){
-        this.victoryPoints = victoryPoints;
-        this.abilityColor = abilityColor;
+    public IslandCard(String name){
         i = Islands.valueOf(name);
+        switch (i) {
+            case MAUI -> {
+                victoryPoints = 1;
+                abilityColor = "GREEN";
+            }
+            case MAJORCA -> {
+                victoryPoints = 2;
+                abilityColor = "RED";
+            }
+            case LUZON -> {
+                victoryPoints = 2;
+                abilityColor = "BLUE";
+            }
+            case KYUSHU -> {
+                victoryPoints = 3;
+                abilityColor = "YELLOW";
+            }
+            case TENERIFE -> {
+                victoryPoints = 2;
+                abilityColor = "MULTI";
+            }
+            case TAHITI -> {
+                victoryPoints = 3;
+                abilityColor = "BLUE";
+            }
+            default -> {
+            }
+        }
     }
+
     public void initialEffect(){
         switch(i){
             case MAUI:
@@ -64,6 +93,11 @@ public class IslandCard extends Card {
             default:
                 break;
         }
+    }
+
+    public IslandCard randomDrawCard(){
+        Islands tmp = Islands.values()[new Random().nextInt(Islands.values().length)];
+        return new IslandCard(tmp.name());
     }
 
     public String toString(){
