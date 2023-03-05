@@ -47,14 +47,16 @@ class Player{
         soil-=numOfSoil;
     }
 
+    
     void addToHand(int numberOfCards) {
         hand.add(IslandCard.randomDrawCard());
         hand.add(ClimateCard.randomDrawCard());
     }
-
+    /*
     void viewHand() {
         for (int i = 0; i < hand.size(); i++) {
             toString(hand.get(i));
         }
     }
+     */
 }

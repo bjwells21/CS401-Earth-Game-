@@ -3,6 +3,8 @@ package earthGame.Model;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 /*
  * This is a console view of the board game "Earth"
  *
@@ -35,25 +37,33 @@ public class view {
         // STATIC NUMBER OF PLAYERS (TEMPORARY)
        // String name;
         // for loop to create specified number of players
+
+        int playerCount = 1;
         players = new Player[NUM_PLAYERS];
         for (int playerIndex = 1; playerIndex < NUM_PLAYERS+1; playerIndex++) {
             // add player
             //players[playerIndex] = new Player(name);
             System.out.println("Created Player " + playerIndex );
         }
-
+        ClimateCard cc = new ClimateCard();
+        IslandCard ic = new IslandCard();
         // implement function to shuffle and deal cards
         // implement function to choose a random starting player
         // int rand = (Math.random() <= 0.5) ? 1 : 2;
-        System.out.println("Player 1 will go first");
-        System.out.println("Player 1 draws an Island card and Climate card");
-        ClimateCard cc = new ClimateCard();
-        IslandCard ic = new IslandCard();
-        System.out.println("Player 1 draws cards \n" + cc.randomDrawCard() + ic.randomDrawCard());
-        System.out.println("Player 2 draws cards \n" + cc.randomDrawCard() + ic.randomDrawCard());
+        System.out.println("Player " + playerCount + " will go first");
+        System.out.print("Player " + playerCount + " - Draw Cards?(y/n): ");
+        String response = stdin.next();
+        if(response == "y"){
+            System.out.println("Player " + playerCount + " draws: \n" + cc.randomDrawCard() + ic.randomDrawCard());
+        }
+        else {
+            System.out.println("Thank you for playing!");
+            System.out.println("Game Ending...");
+            exit();
+        }
+    }
 
-
-
+    private void exit() {
     }
 
     public static void main(String[] args) {
