@@ -34,6 +34,7 @@ public class view {
         // int NUM_PLAYERS = stdin.nextInt();
         // STATIC NUMBER OF PLAYERS (TEMPORARY)
        // String name;
+        // for loop to create specified number of players
         players = new Player[NUM_PLAYERS];
         for (int playerIndex = 1; playerIndex < NUM_PLAYERS+1; playerIndex++) {
             // add player
@@ -43,8 +44,14 @@ public class view {
 
         // implement function to shuffle and deal cards
         // implement function to choose a random starting player
-        int rand = (Math.random() <= 0.5) ? 1 : 2;
-        System.out.println("Player " + rand + " will go first");
+        // int rand = (Math.random() <= 0.5) ? 1 : 2;
+        System.out.println("Player 1 will go first");
+        System.out.println("Player 1 draws an Island card and Climate card");
+        ClimateCard cc = new ClimateCard();
+        IslandCard ic = new IslandCard();
+        System.out.println("Player 1 draws cards \n" + cc.randomDrawCard() + ic.randomDrawCard());
+        System.out.println("Player 2 draws cards \n" + cc.randomDrawCard() + ic.randomDrawCard());
+
 
 
     }
