@@ -53,8 +53,8 @@ class Player{
     }
 
     void viewHand() {
-        for (int i = 0; i < hand.size(); i++) {
-            toString(hand.get(i));
+        for (int i=0;i<hand.size();i++) {
+            hand.get(i).toString();
         }
     }
 }
