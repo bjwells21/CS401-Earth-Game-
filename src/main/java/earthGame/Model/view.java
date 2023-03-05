@@ -1,5 +1,6 @@
 package earthGame.Model;
 
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -45,21 +46,25 @@ public class view {
             //players[playerIndex] = new Player(name);
             System.out.println("Created Player " + playerIndex );
         }
-        ClimateCard cc = new ClimateCard();
-        IslandCard ic = new IslandCard();
         // implement function to shuffle and deal cards
         // implement function to choose a random starting player
         // int rand = (Math.random() <= 0.5) ? 1 : 2;
         System.out.println("Player " + playerCount + " will go first");
-        System.out.print("Player " + playerCount + " - Draw Cards?(y/n): ");
-        String response = stdin.next();
-        if(response == "y"){
-            System.out.println("Player " + playerCount + " draws: \n" + cc.randomDrawCard() + ic.randomDrawCard());
-        }
-        else {
-            System.out.println("Thank you for playing!");
-            System.out.println("Game Ending...");
-            exit();
+        for(int i = 0; i < NUM_PLAYERS; i++){
+            System.out.print("Player " + playerCount + " - Draw Cards?(y/n): ");
+            String response = stdin.next();
+            if(Objects.equals(response, "y")){
+                System.out.println("Player " + playerCount + " cards");
+                System.out.println("-------------------------- \n"
+                        + ClimateCard.randomDrawCard() + "\n"
+                        + IslandCard.randomDrawCard());
+            }
+            else {
+                System.out.println("Thank you for playing!");
+                System.out.println("Game Ending...");
+                exit();
+            }
+            playerCount += 1;
         }
     }
 
