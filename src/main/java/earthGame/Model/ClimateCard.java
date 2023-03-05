@@ -37,6 +37,8 @@ public class ClimateCard extends Card {
             case POLAR -> {
                 victoryPoints = 5;
             }
+            default -> {
+            }
         }
     }
 
@@ -49,8 +51,24 @@ public class ClimateCard extends Card {
         return "Climate card: \nName: " + c.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) + "\n";
     }
 
-    public void abilityEffect(){
-
+    public int abilityEffect(){
+        switch(c){
+            case TROPICAL -> {
+                return 3;
+            }
+            case DRY -> {
+                return 4;
+            }
+            case TEMPERATE -> {
+                return 1;
+            }
+            case CONTINENTAL, POLAR -> {
+                return 2;
+            }
+            default -> {
+                return 0;
+            }
+        }
     }
 
     public int getVictoryPoints() {
