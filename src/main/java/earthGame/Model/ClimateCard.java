@@ -55,8 +55,6 @@ public class ClimateCard extends Card {
     //currently allows for duplicates will need to be fixed in the future
     public static ClimateCard randomDrawCard(){
         //get a random enum and return an object initialized with that name card
-
-    public static ClimateCard randomDrawCard(){
         Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
         return new ClimateCard(tmp.name());
     }
