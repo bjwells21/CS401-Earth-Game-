@@ -3,7 +3,7 @@ package earthGame.Model;
 import java.util.ArrayList;
 
 class Player{
-    // array list to represent user's hand
+    // array list to represent user's hand in game
     ArrayList<Card> hand;
     // every player has an island card and a climate card
     Card island, climate;
