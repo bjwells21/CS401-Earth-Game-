@@ -26,7 +26,7 @@ public class ClimateCard extends Card {
 
 
     public ClimateCard(String name){
-        //convert the string to enum type
+        //convert the string to enum typ
         c = Climate.valueOf(name);
         //use a switch case to assign the cards respective victory points
         switch(c){
