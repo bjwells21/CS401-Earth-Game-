@@ -95,7 +95,7 @@ public class IslandCard extends Card {
         }
     }
 
-    public IslandCard randomDrawCard(){
+    public static IslandCard randomDrawCard(){
         Islands tmp = Islands.values()[new Random().nextInt(Islands.values().length)];
         return new IslandCard(tmp.name());
     }
