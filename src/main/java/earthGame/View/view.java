@@ -1,10 +1,12 @@
-package earthGame.Model;
+package earthGame.View;
+
+import earthGame.Model.Card;
+import earthGame.Model.ClimateCard;
+import earthGame.Model.IslandCard;
+import earthGame.Model.Player;
 
 import java.util.Objects;
-import java.util.Random;
 import java.util.Scanner;
-
-import static java.lang.System.exit;
 
 /*
  * This is a console view of the board game "Earth"
@@ -15,7 +17,7 @@ public class view {
     Card cards;
     Player[] players;
     // Deck deck;
-    private Scanner stdin = new Scanner(System.in);
+    private final Scanner stdin = new Scanner(System.in);
     static final int NUM_PLAYERS = 2;
     // private static final String QUIT = "Q";
 
