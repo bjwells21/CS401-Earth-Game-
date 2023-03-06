@@ -40,9 +40,13 @@ public class ClimateCard extends Card {
         }
     }
 
-    public ClimateCard randomDrawCard(){
+    public static ClimateCard randomDrawCard(){
         Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
         return new ClimateCard(tmp.name());
+    }
+
+    public String toString(){
+        return "Climate card: \nName: " + c.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) + "\n";
     }
 
     public void abilityEffect(){
