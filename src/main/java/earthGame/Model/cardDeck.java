@@ -1,4 +1,4 @@
-package earthGame;
+package earthGame.Model;
 import java.util.ArrayList;
 import java.util.Collections;
 
