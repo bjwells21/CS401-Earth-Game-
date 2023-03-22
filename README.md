@@ -25,11 +25,11 @@ Components: <br />
 * finishFirst, detects if player finished board first <br />
 <br />
 Functions: <br />
-* addCompost(numCompost), adds to player's total compost
-* getCompost(), gets player's compost
-* same for getPoints() and addPoints(numPoints)
-* same for getSoil() and addSoil
-* useSoil(numSoil), subtracts soil
-* addToHand(numberOfCards), adds cards to player's hand
-* toString, prints player info
+* addCompost(numCompost), adds to player's total compost <br />
+* getCompost(), gets player's compost <br />
+* same for getPoints() and addPoints(numPoints) <br />
+* same for getSoil() and addSoil <br />
+* useSoil(numSoil), subtracts soil <br />
+* addToHand(numberOfCards), adds cards to player's hand <br />
+* toString, prints player info <br />
 
