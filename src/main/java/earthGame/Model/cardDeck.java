@@ -1,7 +1,16 @@
-package earthGame;
+package earthGame.Model;
 import java.util.ArrayList;
 import java.util.Collections;
-
+/*
+the cardDeck class takes a generic array list  and builds a deck class with it with methods to support deck
+operations of card games.
+methods:
+buildDeck - accepts a deck size and array list of cards, recreates a 1 to 1 in cardEck format
+return DeckSize - returns  size of the carddeck
+drawCard - draws a card and returns it to user. this is destructive of the deck
+isDeckEmpty- checks if deck is empty
+shuffle - drawing from the collections methods, shuffles the elements of the deck
+ */
 public class cardDeck<T> {
     ArrayList<T> cards;
 

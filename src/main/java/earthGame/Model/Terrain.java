@@ -1,5 +1,6 @@
 package earthGame.Model;
 
+//Enum for the names of each Terrain Card
 enum Terrains {
     PLATEAU,
     MOUNTAIN,
@@ -22,7 +23,6 @@ public class Terrain {
 
     //victory points should be added to players total in the end
     //Soil should be an attribute of the player class instead of a variable in a card class
-
     private int victoryPoints;
     private int soil;
     private Terrains t;
@@ -33,12 +33,17 @@ public class Terrain {
         soil = 0;
         abilityColor = "";
     }
+
     public Terrain(int victoryPoints, int soil, String name, String abilityColor){
         this.victoryPoints = victoryPoints;
         this.soil = soil;
+        //Convert String to enum type
         Terrains t = Terrains.valueOf(name);
         this.abilityColor = abilityColor;
     }
+
+    //Each Terrain card has an endgame effect that adds victoryPoints to each player
+    //Could change implementation so that returns the associated victory point to controller
     public void endgameEffect(){
         switch (t) {
             case PLATEAU -> victoryPoints = victoryPoints + 1;
@@ -51,6 +56,9 @@ public class Terrain {
             }
         }
     }
+
+    //Each card also has a directional ability effect that could be imporved on by abstracting functionality
+    //to the controller
     public void directionalAbilityEffect(){
         switch(t) {
             case PLATEAU -> soil = soil + 1;
@@ -64,11 +72,14 @@ public class Terrain {
         }
     }
 
+    //Overridden toString() method to output the cards description
+    @Override
     public String toString(){
         return "Terrain card: \nName: " + t.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) +
                 "\nSoil Value: " + Integer.toString(getSoilValue()) + "Ability's Color: " + getAbilityColor() + "\n";
     }
 
+    //getters and setters
     public String getAbilityColor() {
         return abilityColor;
     }
