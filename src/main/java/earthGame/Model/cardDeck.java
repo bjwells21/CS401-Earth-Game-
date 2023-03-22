@@ -27,7 +27,6 @@ public class cardDeck<T> {
     }
 
     int returnDeckSize(){
-
         return cards.size();
     }
 
