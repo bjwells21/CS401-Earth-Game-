@@ -3,10 +3,11 @@ package earthGame.Model;
 import earthGame.Model.cardDeck;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
 import java.util.ArrayList;
+import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class cardDeckTest<T> {
     ArrayList<T> cards;

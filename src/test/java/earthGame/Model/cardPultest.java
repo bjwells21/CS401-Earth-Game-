@@ -1,5 +1,7 @@
 package earthGame.Model;
 
+import earthGame.Model.IslandCard;
+import earthGame.Model.cardDeck;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
