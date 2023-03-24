@@ -70,15 +70,10 @@ public class Player{
     }
 
     // prototype: puts an island card and a climate card in user's hands
-    /*public void addToHand(int numberOfCards) {
-        if (numberOfCards > 0) {
-            while (numberOfCards != 0) {
-                hand.add(deck.drawCard());
-                numberOfCards--;
-            }
-        }
+    public void addToHand(Card c) {
+        hand.add(c);
     }
-    */
+
     public void addToTablaeu(Card c,int posX, int posY){
         tableau[posX][posY] = c;
     }
