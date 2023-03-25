@@ -19,7 +19,7 @@ enum Terrains {
     GLACIER
 }
 
-public class Terrain {
+public class Terrain extends Card {
 
     //victory points should be added to players total in the end
     //Soil should be an attribute of the player class instead of a variable in a card class
@@ -34,49 +34,105 @@ public class Terrain {
         abilityColor = "";
     }
 
-    public Terrain(int victoryPoints, int soil, String name, String abilityColor){
-        this.victoryPoints = victoryPoints;
-        this.soil = soil;
+    public Terrain(String name){
         //Convert String to enum type
-        Terrains t = Terrains.valueOf(name);
-        this.abilityColor = abilityColor;
+        t = Terrains.valueOf(name);
+        switch(t){
+            case PLATEAU -> {
+                victoryPoints = 1;
+                soil = 5;
+                abilityColor = "GREEN";
+            }
+            case MOUNTAIN -> {
+                victoryPoints = 2;
+                soil = 6;
+                abilityColor = "RED";
+            }
+            case PLAINS -> {
+                victoryPoints = 3;
+                soil = 1;
+                abilityColor = "BLUE";
+            }
+            case VALLEYS -> {
+                victoryPoints = 4;
+                soil = 4;
+                abilityColor = "YELLOW";
+            }
+            case CANYONS -> {
+                victoryPoints = 5;
+                soil = 3;
+                abilityColor = "MULTI";
+            }
+            case KARSTS -> {
+                victoryPoints = 5;
+                soil = 3;
+                abilityColor = "GREEN";
+            }
+            case CIRQUES -> {
+                victoryPoints = 5;
+                soil = 3;
+                abilityColor = "RED";
+            }
+            case FOOTHILLS -> {
+                victoryPoints = 6;
+                soil = 2;
+                abilityColor = "BLUE";
+            }
+            case PLAYAS -> {
+                victoryPoints = 6;
+                soil = 2;
+                abilityColor = "YELLOW";
+            }
+            case DUNES -> {
+                victoryPoints = 6;
+                soil = 2;
+                abilityColor = "MULTI";
+            }
+            case MOUNDS -> {
+                victoryPoints = 6;
+                soil = 2;
+                abilityColor = "GREEN";
+            }
+            case BUTTE -> {
+                victoryPoints = 6;
+                soil = 2;
+                abilityColor = "RED";
+            }
+            case MESA -> {
+                victoryPoints = 2;
+                soil = 6;
+                abilityColor = "MULTI";
+            }
+            case MARSH -> {
+                victoryPoints = 2;
+                soil = 6;
+                abilityColor = "GREEN";
+            }
+            case GLACIER -> {
+                victoryPoints = 2;
+                soil = 6;
+                abilityColor = "YELLOW";
+            }
+            default -> {
+            }
+        }
     }
 
     //Each Terrain card has an endgame effect that adds victoryPoints to each player
-    //Could change implementation so that returns the associated victory point to controller
-    public void endgameEffect(){
-        switch (t) {
-            case PLATEAU -> victoryPoints = victoryPoints + 1;
-            case MOUNTAIN, MESA, MARSH, GLACIER -> victoryPoints = victoryPoints + 2;
-            case PLAINS -> victoryPoints = victoryPoints + 3;
-            case VALLEYS -> victoryPoints = victoryPoints + 4;
-            case CANYONS, KARSTS, CIRQUES -> victoryPoints = victoryPoints + 5;
-            case FOOTHILLS, PLAYAS, DUNES, MOUNDS, BUTTE -> victoryPoints = victoryPoints + 6;
-            default -> {
-            }
-        }
+    public void endgameEffect(Player player){
+        player.addPoints(this.victoryPoints);
     }
 
-    //Each card also has a directional ability effect that could be imporved on by abstracting functionality
-    //to the controller
-    public void directionalAbilityEffect(){
-        switch(t) {
-            case PLATEAU -> soil = soil + 1;
-            case MOUNTAIN, MESA, MARSH, GLACIER -> soil = soil + 2;
-            case PLAINS -> soil = soil + 3;
-            case VALLEYS -> soil = soil + 4;
-            case CANYONS, KARSTS, CIRQUES -> soil = soil + 5;
-            case FOOTHILLS, PLAYAS, DUNES, MOUNDS, BUTTE -> soil = soil + 6;
-            default -> {
-            }
-        }
+    //Each card also has a directional ability effect
+    public void directionalAbilityEffect(Player player){
+        player.addSoil(this.soil);
     }
 
     //Overridden toString() method to output the cards description
     @Override
     public String toString(){
-        return "Terrain card: \nName: " + t.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) +
-                "\nSoil Value: " + Integer.toString(getSoilValue()) + "Ability's Color: " + getAbilityColor() + "\n";
+        return "Terrain card: \nName: " + t.name() + "\nVictory Points: " + getVictoryPoints() +
+                "\nSoil Value: " + getSoilValue() + "Ability's Color: " + getAbilityColor() + "\n";
     }
 
     //getters and setters
