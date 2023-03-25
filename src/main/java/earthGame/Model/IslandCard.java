@@ -69,7 +69,7 @@ public class IslandCard extends Card {
                 //draw a certain number of cards for the player
                 //Compost a certain number of cards
                 player.addSoil(6);
-                player.addToHand(4);
+                //player.addToHand(4);
                 player.addCompost(2);
                 break;
             case KYUSHU:
@@ -80,7 +80,7 @@ public class IslandCard extends Card {
                 //Compost a certain number of cards
                 //noinspection DuplicateBranchesInSwitch
                 player.addSoil(4);
-                player.addToHand(6);
+                //player.addToHand(6);
                 player.addCompost(3);
                 break;
             default:
@@ -95,24 +95,24 @@ public class IslandCard extends Card {
                 //add growth pieces to the player to be added in the future
                 //draw a certain number of cards for the player or compost a certain number of cards
                 //add soil to the player
-                player.addToHand(2);
+                //player.addToHand(2);
                 player.addSoil(5);
             }
             case "GREEN" -> {
-                player.addToHand(4);
+                //player.addToHand(4);
                 player.addSoil(3);
             }
             //noinspection DuplicateBranchesInSwitch
             case "RED" -> {
-                player.addToHand(2);
+                //player.addToHand(2);
                 player.addSoil(7);
             }
             case "YELLOW" -> {
-                player.addToHand(5);
+                //player.addToHand(5);
                 player.addSoil(5);
             }
             case "MULTI" -> {
-                player.addToHand(3);
+                //player.addToHand(3);
                 player.addSoil(3);
             }
             default -> {
