@@ -38,8 +38,7 @@ Functions: <br />
 
 <br />
 Deck class: <br />
-Deck class is a wrapper of sorts. Accepts a arraylist of type <T> cards and <br />
-generates a deck object from that list. The general actions possible with the deck <br />
+Accepts a arraylist of type <T> cards and generates a deck object from that list. The general actions possible with the deck <br />
 are drawing cards, shuffling them and constructing the deck <br /><br />
 cardDeck API: <br /> 
 * void buildDeck(int deckSize,ArrayList<T> othercards) <br />
