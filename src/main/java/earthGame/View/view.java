@@ -14,9 +14,7 @@ import java.util.Scanner;
 /*
     User Stories:
     As a player, I want to be able to draw cards.
-    As a player, I want to be able to discard cards.
     As a player, I want to be able to view the cards in my hand.
-    As a player, I want to be able to view the amount of points I have.
 
  */
 public class view {
@@ -34,6 +32,11 @@ public class view {
         // initialize cards
         // deck = new Deck();
         intro();
+        /*
+        if (intro() == true){
+            startGame();
+        }
+         */
     }
 
     // function to ask user for number of players (1-5) and initializes them
@@ -71,7 +74,7 @@ public class view {
     public boolean intro() {
         String quit;
         // asks user to either quit or continue with game
-        System.out.println("Welcome to Earth Board Game! (console based version)");
+        // System.out.println("Welcome to Earth Board Game! (console based version)");
         System.out.print("Enter " + QUIT + " to quit, any other nonblank to continue: ");
         quit = stdin.next().toUpperCase();
         if (quit.equals(QUIT)){
@@ -85,11 +88,14 @@ public class view {
         return true;
     }
 
-    private void exit() {
+    public void startGame(){
+        initPlayers();
+        dealStartingCards();
     }
 
     public static void main(String[] args) {
         // run the game
         view game = new view();
     }
+
 }
