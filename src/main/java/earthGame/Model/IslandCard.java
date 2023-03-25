@@ -60,8 +60,7 @@ public class IslandCard extends Card {
     }
 
     //This function is for the initial ability to get player setup with material
-    //Needs to be implemented in the future interacting with player and deck classes
-    public void initialEffect(){
+    public void initialEffect(Player player){
         switch(i){
             case MAUI:
             case MAJORCA:
@@ -69,6 +68,9 @@ public class IslandCard extends Card {
                 //add certain amount of soil to the player
                 //draw a certain number of cards for the player
                 //Compost a certain number of cards
+                player.addSoil(6);
+                player.addToHand(4);
+                player.addCompost(2);
                 break;
             case KYUSHU:
             case TENERIFE:
@@ -77,6 +79,9 @@ public class IslandCard extends Card {
                 //draw a certain number of cards for the player
                 //Compost a certain number of cards
                 //noinspection DuplicateBranchesInSwitch
+                player.addSoil(4);
+                player.addToHand(6);
+                player.addCompost(3);
                 break;
             default:
                 break;
@@ -84,27 +89,34 @@ public class IslandCard extends Card {
     }
 
     //The ability effect for Island cards provide players with material
-    //Future implementation would interact with player class possibly through a return value
-    //which controller could call player class's methods
-    public void abilityEffect(){
-        switch(i){
-            case MAUI:
-            case MAJORCA:
-            case LUZON:
-                //add growth pieces to the player
+    public void abilityEffect(Player player){
+        switch (this.abilityColor) {
+            case "BLUE" -> {
+                //add growth pieces to the player to be added in the future
                 //draw a certain number of cards for the player or compost a certain number of cards
                 //add soil to the player
-                break;
-            case KYUSHU:
-            case TENERIFE:
-            case TAHITI:
-                //add growth pieces to the player
-                //draw a certain number of cards for the player or compost a certain number of cards
-                //add soil to the player
-                //noinspection DuplicateBranchesInSwitch
-                break;
-            default:
-                break;
+                player.addToHand(2);
+                player.addSoil(5);
+            }
+            case "GREEN" -> {
+                player.addToHand(4);
+                player.addSoil(3);
+            }
+            //noinspection DuplicateBranchesInSwitch
+            case "RED" -> {
+                player.addToHand(2);
+                player.addSoil(7);
+            }
+            case "YELLOW" -> {
+                player.addToHand(5);
+                player.addSoil(5);
+            }
+            case "MULTI" -> {
+                player.addToHand(3);
+                player.addSoil(3);
+            }
+            default -> {
+            }
         }
     }
 
@@ -119,7 +131,7 @@ public class IslandCard extends Card {
     //Overridden toString() method to output the cards description
     @Override
     public String toString(){
-        return "Island card: \nName: " + i.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) +
+        return "Island card: \nName: " + i.name() + "\nVictory Points: " + getVictoryPoints() +
                 "\nAbility's Color: " + getAbilityColor() + "\n";
     }
 
