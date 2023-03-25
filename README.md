@@ -36,13 +36,14 @@ Functions: <br />
 * addToHand(numberOfCards), adds cards to player's hand <br />
 * toString, prints player info <br />
 
+<br />
 Deck class: <br />
 Deck class is a wrapper of sorts. Accepts a arraylist of type <T> cards and <br />
 generates a deck object from that list. The general actions possible with the deck <br />
-are drawing cards, shuffling them and constructing the deck <br />
-cardDeck API: <br /> <br />
-void buildDeck(int deckSize,ArrayList<T> othercards) <br />
-int returnDeckSize() <br />
-T drawCard(cardDeck cards) <br />
-boolean isDeckEmpty() <br />
-void shuffle() <br />
+are drawing cards, shuffling them and constructing the deck <br /><br />
+cardDeck API: <br /> 
+* void buildDeck(int deckSize,ArrayList<T> othercards) <br />
+* int returnDeckSize() <br />
+* T drawCard(cardDeck cards) <br />
+* boolean isDeckEmpty() <br />
+* void shuffle() <br />
