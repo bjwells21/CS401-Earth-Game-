@@ -119,11 +119,15 @@ public class Terrain extends Card {
     }
 
     //Each Terrain card has an endgame effect that adds victoryPoints to each player
+
+    //When the endgame is triggered, I as the user want to be able to tally up my card's victory points to my count
     public void endgameEffect(Player player){
         player.addPoints(this.victoryPoints);
     }
 
     //Each card also has a directional ability effect
+
+    //As a user when I activate my card's ability, I want it to activate my ability and do its functionality
     public void directionalAbilityEffect(Player player){
         player.addSoil(this.soil);
     }
