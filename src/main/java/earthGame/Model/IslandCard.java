@@ -89,6 +89,7 @@ public class IslandCard extends Card {
     }
 
     //The ability effect for Island cards provide players with material
+    //User Story: As a player when I activate my card's ability, I want the respective ability to activate and do its functionality
     public void abilityEffect(Player player){
         switch (this.abilityColor) {
             case "BLUE" -> {
@@ -123,6 +124,8 @@ public class IslandCard extends Card {
     //function used to draw a random card from all Island cards
     //Used by the player class in assigning each user their beginning Island card
     //currently allows for duplicates will need to be fixed in the future
+
+    //User Story: As a player I want to be able to draw a random Island card to setup my game
     public static IslandCard randomDrawCard(){
         Islands tmp = Islands.values()[new Random().nextInt(Islands.values().length)];
         return new IslandCard(tmp.name());

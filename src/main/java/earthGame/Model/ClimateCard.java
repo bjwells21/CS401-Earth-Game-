@@ -60,6 +60,8 @@ public class ClimateCard extends Card {
     //function used to draw a random card from all Climate cards
     //Used by the player class in assigning each user their beginning climate card
     //currently allows for duplicates will need to be fixed in the future
+
+    //User Story: As a player I want to be able to draw a random Climate card to setup my game
     public static ClimateCard randomDrawCard(){
         //get a random enum and return an object initialized with that name card
         Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
@@ -74,6 +76,8 @@ public class ClimateCard extends Card {
 
     //function used to activate the card's victory point count implemented through a switch case that matches with the card's name
     //victory points are added to the player's count
+
+    //User Story: As a player when I activate my card's ability, I want the respective ability to activate and do its functionality
     public void abilityEffect(Player player){
         switch(abilityColor){
             case "BLUE" -> {
