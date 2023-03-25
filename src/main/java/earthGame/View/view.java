@@ -74,7 +74,7 @@ public class view {
     public boolean intro() {
         String quit;
         // asks user to either quit or continue with game
-        // System.out.println("Welcome to Earth Board Game! (console based version)");
+        System.out.println("Welcome to Earth Board Game! (console based version)");
         System.out.print("Enter " + QUIT + " to quit, any other nonblank to continue: ");
         quit = stdin.next().toUpperCase();
         if (quit.equals(QUIT)){
