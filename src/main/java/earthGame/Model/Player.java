@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 public class Player{
     // array list to represent user's hand
-    public ArrayList<Card> hand;
+    private ArrayList<Card> hand;
     // every player has an island card and a climate card
-    public Card island, climate;
+    private Card island, climate;
     // every player has a 4x4 tableau to plant their cards
-    public Card[][] tableau = new Card[4][4];
-    public boolean activePlayer, finishFirst;
+    public Card[][] tableau;
+    private boolean activePlayer, finishFirst;
     // every player has soil, compost, and Victory Points
-    public int soil, faunaObj, totalVPoints, compost, playerNumber;
-
-
+    private int soil, totalVPoints, compost, playerNumber;
 
     // maybe add growthTokens?
 
@@ -21,11 +19,11 @@ public class Player{
     public Player(int startSoil, int playerNum) {
         hand = new ArrayList<Card>();
         compost = 0;
-        faunaObj = 0;
         totalVPoints = 0;
         soil = startSoil;
         playerNumber = playerNum;
         finishFirst = false;
+        tableau = new Card[4][4];
     }
     // function to add to the player's compost
     public void addCompost(int numCompost){
@@ -70,18 +68,13 @@ public class Player{
         soil-=numOfSoil;
         if (soil < 0){ soil = 0;}
     }
-
-    // prototype: puts an island card and a climate card in user's hands
-    public void addToHand(int numberOfCards) {
-        /*if (numberOfCards > 0) {
-            while (numberOfCards != 0) {
-                hand.add(deck.drawCard());
-                numberOfCards--;
-            }
-        }*/
+    public int getHandSize(){
+        return hand.size();
     }
-
-    public void addToTablaeu(Card c,int posX, int posY){
+    public void addToHand(Card c) {
+        hand.add(c);
+    }
+    public void addToTableau(Card c,int posX, int posY){
         tableau[posX][posY] = c;
     }
     // function to view the player's hand
@@ -95,9 +88,37 @@ public class Player{
     public String toString(){
         String playerData="";
         playerData += "Player " + playerNumber + ":\n-----------\n"
-         + "Compost: " + compost + "\n"
-         + "Soil: " + soil + "\n"
-         + "VPoints: " + totalVPoints + "\n";
+                + "Compost: " + compost + "\n"
+                + "Soil: " + soil + "\n"
+                + "VPoints: " + totalVPoints + "\n";
         return playerData;
     }
+
+    public void removeCard(Card c){
+        hand.remove(c);
+    }
+
+    public Card getCardFromHand(int index){
+        return hand.get(index);
+    }
+
+    public int getPlayerNumber(){
+        return playerNumber;
+    }
+
+    public boolean isTableauFull(){
+        int numCardsTableau=0;
+        for(int i=0;i<tableau.length;i++){
+            for(int j=0;j<tableau[i].length;j++){
+                if (!(tableau[i][j] == null))
+                    numCardsTableau++;
+            }
+        }
+        return numCardsTableau == 16;
+    }
+
+    public Card[][] getTableau(){
+        return tableau;
+    }
+
 }
