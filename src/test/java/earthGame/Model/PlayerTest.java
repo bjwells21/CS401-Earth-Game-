@@ -51,17 +51,34 @@ public class PlayerTest {
     @Test
     public void addToHandTest(){
         p1.addToHand(c);
-        assertEquals(p1.hand.get(0), c);
+        assertEquals(p1.getCardFromHand(0), c);
     }
     @Test
     public void removeFromHandTest(){
         p1.addToHand(c);
         p1.removeCard(c);
-        assertEquals(p1.hand.size(), 0);
+        assertEquals(p1.getHandSize(), 0);
     }
     @Test
     public void addToTableauTest(){
         p1.addToTableau(c,0,1);
         assertEquals(p1.tableau[0][1],c);
+    }
+
+    @Test
+    public void viewPlayerInfoTest(){
+        String viewInfo = p1.toString();
+        String s = "Player " + p1.getPlayerNumber() + ":\n-----------\n"
+                + "Compost: " + p1.getCompost() + "\n"
+                + "Soil: " + p1.getSoil() + "\n"
+                + "VPoints: " + p1.getPoints() + "\n";
+        assertEquals(s,viewInfo);
+    }
+    @Test
+    public void viewHandTest(){
+        p1.addToHand(c);
+        String viewHand = p1.viewHand();
+        String s = c.toString() + "\n";
+        assertEquals(viewHand, s);
     }
 }

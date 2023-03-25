@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Player{
     // array list to represent user's hand
-    public ArrayList<Card> hand;
+    private ArrayList<Card> hand;
     // every player has an island card and a climate card
     private Card island, climate;
     // every player has a 4x4 tableau to plant their cards
@@ -68,7 +68,9 @@ public class Player{
         soil-=numOfSoil;
         if (soil < 0){ soil = 0;}
     }
-
+    public int getHandSize(){
+        return hand.size();
+    }
     public void addToHand(Card c) {
         hand.add(c);
     }
@@ -94,5 +96,13 @@ public class Player{
 
     public void removeCard(Card c){
         hand.remove(c);
+    }
+
+    public Card getCardFromHand(int index){
+        return hand.get(index);
+    }
+
+    public int getPlayerNumber(){
+        return playerNumber;
     }
 }
