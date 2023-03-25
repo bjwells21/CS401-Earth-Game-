@@ -11,6 +11,14 @@ drawCard - draws a card and returns it to user. this is destructive of the deck
 isDeckEmpty- checks if deck is empty
 shuffle - drawing from the collections methods, shuffles the elements of the deck
  */
+
+/*
+As a player, I want to be able to draw a card from the deck,
+so that I can play the game using the deck I have built.
+
+goal of implementation: create a draw method. Make it so the pull is destructive to the
+deck (pulling on the deck decrements it).
+ */
 public class cardDeck<T> {
     ArrayList<T> cards;
 
@@ -27,7 +35,6 @@ public class cardDeck<T> {
     }
 
     int returnDeckSize(){
-
         return cards.size();
     }
 

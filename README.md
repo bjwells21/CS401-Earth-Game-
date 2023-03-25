@@ -7,6 +7,9 @@ Billy Wells (bwells17@horizon.csueastbay.edu) <br />
 
 current prototype of the game exists on the view class. 
 
+
+Earth Game Documentation <br />
+
 current features: <br />
 Deck class <br />
 cards (climate, terrain and island currently) <br />
@@ -33,3 +36,13 @@ Functions: <br />
 * addToHand(numberOfCards), adds cards to player's hand <br />
 * toString, prints player info <br />
 
+<br />
+Deck class: <br />
+Accepts a arraylist of type <T> cards and generates a deck object from that list. The general actions possible with the deck <br />
+are drawing cards, shuffling them and constructing the deck <br /><br />
+cardDeck API: <br /> 
+* void buildDeck(int deckSize,ArrayList<T> othercards) <br />
+* int returnDeckSize() <br />
+* T drawCard(cardDeck cards) <br />
+* boolean isDeckEmpty() <br />
+* void shuffle() <br />
