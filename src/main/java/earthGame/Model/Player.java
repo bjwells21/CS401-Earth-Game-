@@ -13,6 +13,8 @@ public class Player{
     // every player has soil, compost, and Victory Points
     public int soil, faunaObj, totalVPoints, compost, playerNumber;
 
+
+
     // maybe add growthTokens?
 
     // constructor for Player object, initialized with starting soil and if they are the first player in the rotation.
@@ -70,15 +72,15 @@ public class Player{
     }
 
     // prototype: puts an island card and a climate card in user's hands
-    /*public void addToHand(int numberOfCards) {
-        if (numberOfCards > 0) {
+    public void addToHand(int numberOfCards) {
+        /*if (numberOfCards > 0) {
             while (numberOfCards != 0) {
                 hand.add(deck.drawCard());
                 numberOfCards--;
             }
-        }
+        }*/
     }
-    */
+
     public void addToTablaeu(Card c,int posX, int posY){
         tableau[posX][posY] = c;
     }
