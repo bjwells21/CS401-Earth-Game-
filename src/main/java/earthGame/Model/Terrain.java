@@ -36,7 +36,7 @@ public class Terrain extends Card {
 
     public Terrain(String name){
         //Convert String to enum type
-        Terrains t = Terrains.valueOf(name);
+        t = Terrains.valueOf(name);
         switch(t){
             case PLATEAU -> {
                 victoryPoints = 1;
@@ -125,7 +125,7 @@ public class Terrain extends Card {
 
     //Each card also has a directional ability effect
     public void directionalAbilityEffect(Player player){
-        player.addPoints(this.victoryPoints);
+        player.addSoil(this.soil);
     }
 
     //Overridden toString() method to output the cards description

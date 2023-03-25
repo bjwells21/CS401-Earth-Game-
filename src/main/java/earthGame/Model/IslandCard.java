@@ -151,4 +151,6 @@ public class IslandCard extends Card {
     public void setAbilityColor(String abilityColor) {
         this.abilityColor = abilityColor;
     }
+
+    public Islands getName(){ return i; }
 }
