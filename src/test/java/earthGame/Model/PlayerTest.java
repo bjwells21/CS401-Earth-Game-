@@ -95,4 +95,6 @@ public class PlayerTest {
         }
         assertTrue(p1.isTableauFull());
     }
+
 }
+
