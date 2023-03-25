@@ -81,4 +81,18 @@ public class PlayerTest {
         String s = c.toString() + "\n";
         assertEquals(viewHand, s);
     }
+
+    @Test
+    public void isTableauEmpty(){
+        assertFalse(p1.isTableauFull());
+    }
+
+    @Test
+    public void isTableauFullTest(){
+        for (int i = 0; i<p1.getTableau().length;i++){
+            for (int j = 0; j<p1.getTableau()[i].length;j++)
+                p1.addToTableau(c,i,j);
+        }
+        assertTrue(p1.isTableauFull());
+    }
 }

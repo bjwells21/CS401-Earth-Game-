@@ -105,4 +105,20 @@ public class Player{
     public int getPlayerNumber(){
         return playerNumber;
     }
+
+    public boolean isTableauFull(){
+        int numCardsTableau=0;
+        for(int i=0;i<tableau.length;i++){
+            for(int j=0;j<tableau[i].length;j++){
+                if (!(tableau[i][j] == null))
+                    numCardsTableau++;
+            }
+        }
+        return numCardsTableau == 16;
+    }
+
+    public Card[][] getTableau(){
+        return tableau;
+    }
+
 }
