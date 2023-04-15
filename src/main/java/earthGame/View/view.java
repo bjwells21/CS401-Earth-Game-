@@ -29,7 +29,7 @@ public class view {
         // fauna board
         // initialize cards
         // deck = new Deck();
-        intro();
+        //intro();
         /*
         if (intro() == true){
             startGame();
@@ -80,8 +80,8 @@ public class view {
         }
 
         // continue with game
-        initPlayers();
-        dealStartingCards();
+        //initPlayers();
+        //dealStartingCards();
 
         return true;
     }
@@ -94,6 +94,9 @@ public class view {
     public static void main(String[] args) {
         // run the game
         view game = new view();
+    }
+    public void display(String inputString){
+        System.out.println(inputString);
     }
 
 }
