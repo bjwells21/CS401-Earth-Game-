@@ -23,7 +23,7 @@ public class ClimateCardTest{
 
     @Test
     public void testToString(){
-        ClimateCard randomCard = ClimateCard.randomDrawCard();
+        ClimateCard randomCard = cardDeck.randomDrawClimateCard();
         String info = "Climate card: \nName: " + randomCard.getC() + "\nVictory Points: " + randomCard.getVictoryPoints() + "\n";
         assertEquals(info, randomCard.toString());
     }

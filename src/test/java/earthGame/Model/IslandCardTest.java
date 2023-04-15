@@ -24,7 +24,7 @@ public class IslandCardTest {
 
     @Test
     public void testToString(){
-        IslandCard randomCard = IslandCard.randomDrawCard();
+        IslandCard randomCard = cardDeck.randomDrawIslandCard();
         String info = "Island card: \nName: " + randomCard.getName() + "\nVictory Points: " + randomCard.getVictoryPoints() + "\nAbility's Color: " + randomCard.getAbilityColor() + "\n";
         assertEquals(info, randomCard.toString());
     }
