@@ -16,9 +16,9 @@ public class gameRules {
     private final Scanner stdin = new Scanner(System.in);
     String response;
     int switchInput;
-    //view newView;
 
     public gameRules(int numPlayers){
+        numPlayers++;
         view newView = new view();
         boolean entryTest = newView.intro();
         if(entryTest == false){exit();}
@@ -26,13 +26,15 @@ public class gameRules {
             initPlayers();
             dealStartingCards();
 
-            for(int i = 0; i < numPlayers; i++){
+            for(int i = 1; i < numPlayers; i++){
+
             /*
                 portion of code reserved for having player pick one of 3 tiles
                 also evaluating and doing the effect of the tiles
              */
                 System.out.print("which tile you you like to choose? " +
-                        "\n0)Quit\n1)Plant\n2)Composting\n3)Watering");
+                        "\n0)Quit\n1)Plant\n2)Composting\n3)Watering" +
+                        "\n4)check tableau");
                 switchInput = stdin.nextInt();
 
                 switch(switchInput){
@@ -52,14 +54,18 @@ public class gameRules {
                         System.out.println("you have selected watering");
                         break;
                     }
+                    case 4:{
+                        break;
+                    }
                     default:{
                         System.out.println("a valid option was not selected");
                         break;
                     }
                 }
             /*
-            portion of code reserved for player choosing a particular tab
+
              */
+                if(i == numPlayers){ i = 1;}        //ensures rotation of players is conserved
 
             }
         }
