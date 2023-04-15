@@ -121,4 +121,9 @@ public class Player{
         return tableau;
     }
 
+    public void drawFromDeck(cardDeck deck){
+        //hand.add(deck.drawCard());
+    }
+    public boolean isActivePlayer(){ return activePlayer;}
+
 }
