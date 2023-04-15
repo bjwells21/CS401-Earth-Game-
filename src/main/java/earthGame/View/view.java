@@ -1,9 +1,7 @@
 package earthGame.View;
 
-import earthGame.Model.Card;
-import earthGame.Model.Player;
-import earthGame.Model.ClimateCard;
-import earthGame.Model.IslandCard;
+import earthGame.Model.*;
+
 import java.util.Scanner;
 
 /*
@@ -65,8 +63,8 @@ public class view {
         for(int nextPlayer = 0; nextPlayer < NUM_PLAYERS; nextPlayer++){
             System.out.println("Current player = " + currentPlayer + " Total players = " + NUM_PLAYERS);
             currentPlayer += 1;
-            players[nextPlayer].addToHand(ClimateCard.randomDrawCard());
-            players[nextPlayer].addToHand(IslandCard.randomDrawCard());
+            players[nextPlayer].addToHand(cardDeck.randomDrawClimateCard());
+            players[nextPlayer].addToHand(cardDeck.randomDrawIslandCard());
             System.out.println(players[nextPlayer].viewHand());
         }
     }

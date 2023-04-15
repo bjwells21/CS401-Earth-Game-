@@ -18,10 +18,12 @@ public class ClimateCard extends Card {
     private int victoryPoints;
     //the enum will act as the name of card and be used to identify abilities
     private Climate c;
+    private String abilityColor;
 
     //default constructor
     public ClimateCard(){
         victoryPoints = 0;
+        abilityColor = "";
     }
 
 
@@ -32,58 +34,57 @@ public class ClimateCard extends Card {
         switch(c){
             case TROPICAL -> {
                 victoryPoints = 1;
+                abilityColor = "GREEN";
             }
             case DRY -> {
                 victoryPoints = 2;
+                abilityColor = "RED";
             }
             case TEMPERATE -> {
                 victoryPoints = 3;
+                abilityColor = "BLUE";
             }
             case CONTINENTAL -> {
                 victoryPoints = 4;
+                abilityColor = "YELLOW";
             }
             case POLAR -> {
                 victoryPoints = 5;
+                abilityColor = "MULTI";
             }
             default -> {
             }
         }
     }
 
-    //function used to draw a random card from all Climate cards
-    //Used by the player class in assigning each user their beginning climate card
-    //currently allows for duplicates will need to be fixed in the future
-    public static ClimateCard randomDrawCard(){
-        //get a random enum and return an object initialized with that name card
-        Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
-        return new ClimateCard(tmp.name());
-    }
-
     //Overridden toString() method to output the cards description
     @Override
     public String toString(){
-        return "Climate card: \nName: " + c.name() + "\nVictory Points: " + Integer.toString(getVictoryPoints()) + "\n";
+        return "Climate card: \nName: " + c.name() + "\nVictory Points: " + getVictoryPoints() + "\n";
     }
 
-    //function used to activate the card's ability implemented through a switch case that matches with the card's name
-    //needs to have interaction with the player class to be implemented in future
-    //return an int to player class which can then call the player objects addSoil() method
-    public int abilityEffect(){
-        switch(c){
-            case TROPICAL -> {
-                return 3;
+    //function used to activate the card's victory point count implemented through a switch case that matches with the card's name
+    //victory points are added to the player's count
+
+    //User Story: As a player when I activate my card's ability, I want the respective ability to activate and do its functionality
+    public void abilityEffect(Player player){
+        switch(abilityColor){
+            case "BLUE" -> {
+                player.addSoil(3);
             }
-            case DRY -> {
-                return 4;
+            case "GREEN" -> {
+                player.addSoil(4);
             }
-            case TEMPERATE -> {
-                return 1;
+            case "RED" -> {
+                player.addSoil(1);
             }
-            case CONTINENTAL, POLAR -> {
-                return 2;
+            case "YELLOW" -> {
+                player.addSoil(2);
+            }
+            case "MULTI" -> {
+                player.addSoil(5);
             }
             default -> {
-                return 0;
             }
         }
     }
@@ -103,5 +104,13 @@ public class ClimateCard extends Card {
 
     public void setC(Climate c) {
         this.c = c;
+    }
+
+    public String getAbilityColor() {
+        return abilityColor;
+    }
+
+    public void setAbilityColor(String abilityColor) {
+        this.abilityColor = abilityColor;
     }
 }
