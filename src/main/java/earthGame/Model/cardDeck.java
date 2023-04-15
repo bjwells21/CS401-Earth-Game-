@@ -1,6 +1,7 @@
 package earthGame.Model;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 /*
 the cardDeck class takes a generic array list  and builds a deck class with it with methods to support deck
 operations of card games.
@@ -50,6 +51,27 @@ public class cardDeck<T> {
 
     boolean isDeckEmpty(){
         return cards.isEmpty();
+    }
+
+    //function used to draw a random card from all Island cards
+    //Used by the player class in assigning each user their beginning Island card
+    //currently allows for duplicates will need to be fixed in the future
+
+    //User Story: As a player I want to be able to draw a random Island card to set up my game
+    public static IslandCard randomDrawIslandCard(){
+        Islands tmp = Islands.values()[new Random().nextInt(Islands.values().length)];
+        return new IslandCard(tmp.name());
+    }
+
+    //function used to draw a random card from all Climate cards
+    //Used by the player class in assigning each user their beginning climate card
+    //currently allows for duplicates will need to be fixed in the future
+
+    //User Story: As a player I want to be able to draw a random Climate card to setup my game
+    public static ClimateCard randomDrawClimateCard(){
+        //get a random enum and return an object initialized with that name card
+        Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
+        return new ClimateCard(tmp.name());
     }
 
     void shuffle(){
