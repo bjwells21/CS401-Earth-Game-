@@ -33,7 +33,6 @@ public class gameRules {
     view newView = new view();
 
     public gameRules(){
-        ;
 
         boolean entryTest = newView.intro();
         if(entryTest == false){exit();}
@@ -41,7 +40,7 @@ public class gameRules {
             initPlayers();
             dealStartingCards();
 
-            for(int i = 1; i < NUM_PLAYERS; i++){
+            for(int i = 1; i <= NUM_PLAYERS; i++){
 
             /*
                 portion of code reserved for having player pick one of 3 tiles
@@ -49,8 +48,9 @@ public class gameRules {
              */
                 newView.display("which tile you you like to choose? " +
                         "\n0)Quit\n1)Plant\n2)Composting\n3)Watering" +
-                        "\n4)check tableau");
+                        "\n4)check player inventory");
                 switchInput = stdin.nextInt();
+                stdin.nextLine();
 
                 switch(switchInput){
                     case 0:{
@@ -58,21 +58,23 @@ public class gameRules {
                         break;
                     }
                     case 1: {
+                        //have code here that does the plant phase
                         newView.display("you have selected the plant phase.");
-                        /*
-
-                         */
                         break;
                     }
                     case 2:{
+                        //have code that does the composting phase
                         newView.display("you have selected composting");
                         break;
                     }
                     case 3:{
+                        //have code here that does the watering phase
                         newView.display("you have selected watering");
                         break;
                     }
                     case 4:{
+                        //code here that checks player tableau, current hand and point total
+                        newView.display("you decided to check your inventory");
                         break;
                     }
                     default:{
@@ -80,9 +82,8 @@ public class gameRules {
                         break;
                     }
                 }
-            /*
 
-             */
+                System.out.println("i currently is: " + i +" and number of players is: " + NUM_PLAYERS);
                 if(i == NUM_PLAYERS){ i = 1;}        //ensures rotation of players is conserved
 
             }
