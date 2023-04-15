@@ -36,6 +36,10 @@ public class Terrain {
         abilityColor = "";
     }
 
+    /**
+     * Initializes a Terrain Card based on the given name
+     * @param name - Name of the card based of the Terrains enum
+     */
     public Terrain(String name){
         //Convert String to enum type
         t = Terrains.valueOf(name);
@@ -120,9 +124,12 @@ public class Terrain {
         }
     }
 
-    //Each Terrain card has an endgame effect that adds victoryPoints to each player
 
-    //When the endgame is triggered, I as the user want to be able to tally up my card's victory points to my count
+    /**
+     * Activates the cards endgame ability and provides player with ending points
+     * @param player - The current player who possesses the Island Card to activate the effect
+     */
+    //User Story: When the endgame is triggered, I as the user want to be able to tally up my card's victory points to my count
     public void endgameEffect(Player player){
         int[] index = getCardPosition(player);
 
@@ -167,8 +174,10 @@ public class Terrain {
         }
     }
 
-    //Each card also has a directional ability effect
-
+    /**
+     * Activates the cards ability and provides player with resources based on the ability color
+     * @param player - The current player who possesses the Island Card to activate the effect
+     */
     //As a user when I activate my card's ability, I want it to activate my ability and do its functionality
     public void directionalAbilityEffect(Player player){
         switch(abilityColor){
@@ -194,13 +203,21 @@ public class Terrain {
         }
     }
 
-    //Overridden toString() method to output the cards description
+    /**
+     * Overriden method to pass output of the card to view
+     * @return Formatted String output of card's info
+     */
     @Override
     public String toString(){
         return "Terrain card: \nName: " + t.name() + "\nVictory Points: " + getVictoryPoints() +
                 "\nSoil Value: " + getSoilValue() + "Ability's Color: " + getAbilityColor() + "\n";
     }
 
+    /**
+     * Checks to see if two Terrain cards are the same or not
+     * @param obj - The object that we want to compare to
+     * @return True if the object is a Terrain object and the exact same card. False if otherwise
+     */
     @Override
     public boolean equals(Object obj){
         if(obj instanceof Terrain t){
@@ -211,6 +228,11 @@ public class Terrain {
 
     }
 
+    /**
+     * Find the index of where the card is positioned in the 4x4 tableau
+     * @param player - The current player who possesses the Island Card to activate the ability
+     * @return The row and column index numbers of where the card is located
+     */
     public int[] getCardPosition(Player player){
         int[] index = new int[2];
         for(int i = 0; i < 4; i++)

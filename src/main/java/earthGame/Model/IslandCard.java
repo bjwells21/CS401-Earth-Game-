@@ -25,7 +25,10 @@ public class IslandCard extends Card {
         abilityColor = "";
     }
 
-    //constructor that takes string argument and creates card object based on name
+    /**
+     * Initializes an Island Card based on the given name
+     * @param name - Name of the card based of the Islands enum
+     */
     public IslandCard(String name){
         i = Islands.valueOf(name);
         switch (i) {
@@ -58,8 +61,11 @@ public class IslandCard extends Card {
         }
     }
 
-    //This function is for the initial ability to get player setup with material
 
+    /**
+     * Activates the cards initial ability and provides player with starting materials
+     * @param player - The current player who possesses the Island Card to activate the effect
+     */
     public void initialEffect(Player player){
         switch(i){
             case MAUI:
@@ -75,9 +81,6 @@ public class IslandCard extends Card {
             case KYUSHU:
             case TENERIFE:
             case TAHITI:
-                //add certain amount of soil to the player
-                //draw a certain number of cards for the player
-                //Compost a certain number of cards
                 //noinspection DuplicateBranchesInSwitch
                 player.addSoil(4);
                 //player.addToHand(6);
@@ -88,14 +91,16 @@ public class IslandCard extends Card {
         }
     }
 
-    //The ability effect for Island cards provide players with material
+    /**
+     * Activates the cards ability based on the color of the ability and updates the players values
+     * @param player - The current player who possesses the Island Card to activate the ability
+     */
     //User Story: As a player when I activate my card's ability, I want the respective ability to activate and do its functionality
     public void abilityEffect(Player player){
         switch (this.abilityColor) {
             case "BLUE" -> {
                 //add growth pieces to the player to be added in the future
                 //draw a certain number of cards for the player or compost a certain number of cards
-                //add soil to the player
                 //player.addToHand(2);
                 player.addSoil(5);
             }
@@ -122,7 +127,10 @@ public class IslandCard extends Card {
     }
 
 
-    //Overridden toString() method to output the cards description
+    /**
+     * Overriden method to pass output of the card to view
+     * @return Formatted String output of card's info
+     */
     @Override
     public String toString(){
         return "Island card: \nName: " + i.name() + "\nVictory Points: " + getVictoryPoints() +
