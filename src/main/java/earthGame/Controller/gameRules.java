@@ -12,6 +12,8 @@ public class gameRules {
     private int diceRoll;
     private int currentPlayer;      //this is an index in the player array
     private final Scanner stdin = new Scanner(System.in);
+    String response;
+    int switchInput;
 
     public gameRules(int numPlayers){
         players = new Player[numPlayers];
@@ -27,7 +29,24 @@ public class gameRules {
                 portion of code reserved for having player pick one of 3 tiles
                 also evaluating and doing the effect of the tiles
              */
+            System.out.print("which tile you you like to choose? " +
+                    "1)Plant\n2)Composting\n3)Watering");
+            switchInput = stdin.nextInt();
 
+            switch(switchInput){
+                case 1: {
+                    System.out.println("you have selected the plant phase.");
+                }
+                case 2:{
+                    System.out.println("you have selected composting");
+                }
+                case 3:{
+                    System.out.println("you have selected watering");
+                }
+                default:{
+                    System.out.println("a valid option was not selected");
+                }
+            }
             /*
             portion of code reserved for
              */
