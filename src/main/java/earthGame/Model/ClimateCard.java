@@ -57,17 +57,6 @@ public class ClimateCard extends Card {
         }
     }
 
-    //function used to draw a random card from all Climate cards
-    //Used by the player class in assigning each user their beginning climate card
-    //currently allows for duplicates will need to be fixed in the future
-
-    //User Story: As a player I want to be able to draw a random Climate card to setup my game
-    public static ClimateCard randomDrawCard(){
-        //get a random enum and return an object initialized with that name card
-        Climate tmp = Climate.values()[new Random().nextInt(Climate.values().length)];
-        return new ClimateCard(tmp.name());
-    }
-
     //Overridden toString() method to output the cards description
     @Override
     public String toString(){

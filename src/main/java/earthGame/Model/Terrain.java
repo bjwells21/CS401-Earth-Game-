@@ -1,5 +1,7 @@
 package earthGame.Model;
 
+import java.util.Objects;
+
 //Enum for the names of each Terrain Card
 enum Terrains {
     PLATEAU,
@@ -19,7 +21,7 @@ enum Terrains {
     GLACIER
 }
 
-public class Terrain extends Card {
+public class Terrain {
 
     //victory points should be added to players total in the end
     //Soil should be an attribute of the player class instead of a variable in a card class
@@ -122,14 +124,74 @@ public class Terrain extends Card {
 
     //When the endgame is triggered, I as the user want to be able to tally up my card's victory points to my count
     public void endgameEffect(Player player){
-        player.addPoints(this.victoryPoints);
+        int[] index = getCardPosition(player);
+
+        Class c1 = player.tableau[index[0]][index[1]].getClass();
+        Class c2 = this.getClass();
+
+        switch(t){
+            case PLATEAU, MOUNTAIN, PLAINS -> {
+                for(int i = 0; i < 4; i++){
+                    if(player.tableau[index[0]][i].getClass() == c2){
+                        player.addPoints(2);
+                    }
+                }
+            }
+            case VALLEYS, CANYONS, KARSTS -> {
+                for(int i = 0; i < 4; i++){
+                    if(player.tableau[i][index[0]].getClass() == c2){
+                        player.addPoints(3);
+                    }
+                }
+            }
+            case CIRQUES, FOOTHILLS, PLAYAS -> {
+                for(int i = 0; i < 4; i++){
+                    if(player.tableau[i][index[0]].getClass() == c2){
+                        player.addPoints(2);
+                    }
+                }
+            }
+            case DUNES, MOUNDS, BUTTE -> {
+                for(int i = 0; i < 4; i++){
+                    if(player.tableau[index[0]][i].getClass() == c2){
+                        player.addPoints(3);
+                    }
+                }
+            }
+            case MESA, MARSH, GLACIER -> {
+                player.addPoints(4);
+            }
+            default -> {
+
+            }
+        }
     }
 
     //Each card also has a directional ability effect
 
     //As a user when I activate my card's ability, I want it to activate my ability and do its functionality
     public void directionalAbilityEffect(Player player){
-        player.addSoil(this.soil);
+        switch(abilityColor){
+            case "RED" -> {
+                player.addSoil(3);
+            }
+            case "BLUE" -> {
+                player.addSoil(2);
+
+            }
+            case "GREEN" -> {
+                player.addSoil(4);
+            }
+            case "YELLOW" -> {
+                player.addSoil(5);
+            }
+            case "MULTI" -> {
+                player.addSoil(1);
+            }
+            default -> {
+
+            }
+        }
     }
 
     //Overridden toString() method to output the cards description
@@ -137,6 +199,29 @@ public class Terrain extends Card {
     public String toString(){
         return "Terrain card: \nName: " + t.name() + "\nVictory Points: " + getVictoryPoints() +
                 "\nSoil Value: " + getSoilValue() + "Ability's Color: " + getAbilityColor() + "\n";
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj instanceof Terrain t){
+            return this.victoryPoints == t.victoryPoints && Objects.equals(this.abilityColor, t.abilityColor) &&
+                    this.soil == t.soil && this.t == t.t;
+        }
+        return false;
+
+    }
+
+    public int[] getCardPosition(Player player){
+        int[] index = new int[2];
+        for(int i = 0; i < 4; i++)
+            for(int j = 0; j < 4; j++){
+                if(player.tableau[i][j].equals(this)){
+                    index[0] = i;
+                    index[1] = j;
+                    return index;
+                }
+            }
+        return null;
     }
 
     //getters and setters

@@ -25,7 +25,6 @@ public class IslandCard extends Card {
         abilityColor = "";
     }
 
-
     //constructor that takes string argument and creates card object based on name
     public IslandCard(String name){
         i = Islands.valueOf(name);
@@ -60,6 +59,7 @@ public class IslandCard extends Card {
     }
 
     //This function is for the initial ability to get player setup with material
+
     public void initialEffect(Player player){
         switch(i){
             case MAUI:
@@ -121,15 +121,6 @@ public class IslandCard extends Card {
         }
     }
 
-    //function used to draw a random card from all Island cards
-    //Used by the player class in assigning each user their beginning Island card
-    //currently allows for duplicates will need to be fixed in the future
-
-    //User Story: As a player I want to be able to draw a random Island card to setup my game
-    public static IslandCard randomDrawCard(){
-        Islands tmp = Islands.values()[new Random().nextInt(Islands.values().length)];
-        return new IslandCard(tmp.name());
-    }
 
     //Overridden toString() method to output the cards description
     @Override
