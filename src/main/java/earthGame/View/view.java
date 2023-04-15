@@ -31,7 +31,7 @@ public class view {
         // fauna board
         // initialize cards
         // deck = new Deck();
-        intro();
+        //intro();
         /*
         if (intro() == true){
             startGame();
@@ -82,8 +82,8 @@ public class view {
         }
 
         // continue with game
-        initPlayers();
-        dealStartingCards();
+        //initPlayers();
+        //dealStartingCards();
 
         return true;
     }
