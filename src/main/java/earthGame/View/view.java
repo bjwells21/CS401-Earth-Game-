@@ -95,5 +95,8 @@ public class view {
         // run the game
         view game = new view();
     }
+    public void display(String inputString){
+        System.out.println(inputString);
+    }
 
 }

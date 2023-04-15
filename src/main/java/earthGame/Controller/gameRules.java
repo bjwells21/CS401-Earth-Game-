@@ -1,9 +1,23 @@
 package earthGame.Controller;
+/*
+controller class that controls the game flow (player turn, player action, endgame state etc) and game
+rules such win conditions, taking action (choosing water/compost/planting tiles).
+
+It will also integrate all the other classes and operate upon the model data to produce results.
+The results will have their data printed by the view class.
+
+To do list:
+-----------
+1) implement player action (choosing tiles) -> controller
+2) have deck/player hand implementations up and running -> player class/view
+3) implement player utility (checking their tableau, how many points they have) -> player class/view
+4) implement card effects and tableau interactions
+5) implement end game conditions -> player class
+ */
 
 
 import earthGame.Model.*;
 import earthGame.View.*;
-
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -16,23 +30,24 @@ public class gameRules {
     private final Scanner stdin = new Scanner(System.in);
     String response;
     int switchInput;
+    view newView = new view();
 
-    public gameRules(int numPlayers){
-        numPlayers++;
-        view newView = new view();
+    public gameRules(){
+        ;
+
         boolean entryTest = newView.intro();
         if(entryTest == false){exit();}
         else{
             initPlayers();
             dealStartingCards();
 
-            for(int i = 1; i < numPlayers; i++){
+            for(int i = 1; i < NUM_PLAYERS; i++){
 
             /*
                 portion of code reserved for having player pick one of 3 tiles
                 also evaluating and doing the effect of the tiles
              */
-                System.out.print("which tile you you like to choose? " +
+                newView.display("which tile you you like to choose? " +
                         "\n0)Quit\n1)Plant\n2)Composting\n3)Watering" +
                         "\n4)check tableau");
                 switchInput = stdin.nextInt();
@@ -43,41 +58,45 @@ public class gameRules {
                         break;
                     }
                     case 1: {
-                        System.out.println("you have selected the plant phase.");
+                        newView.display("you have selected the plant phase.");
+                        /*
+
+                         */
                         break;
                     }
                     case 2:{
-                        System.out.println("you have selected composting");
+                        newView.display("you have selected composting");
                         break;
                     }
                     case 3:{
-                        System.out.println("you have selected watering");
+                        newView.display("you have selected watering");
                         break;
                     }
                     case 4:{
                         break;
                     }
                     default:{
-                        System.out.println("a valid option was not selected");
+                        newView.display("a valid option was not selected");
                         break;
                     }
                 }
             /*
 
              */
-                if(i == numPlayers){ i = 1;}        //ensures rotation of players is conserved
+                if(i == NUM_PLAYERS){ i = 1;}        //ensures rotation of players is conserved
 
             }
         }
     }
     public void initPlayers() {
-        System.out.println("Game will now begin...");
+
+        newView.display("Game will now begin...");
 
         do {
-            System.out.print("Enter number of players (1-5): ");
+            newView.display("Enter number of players (1-5): ");
             this.NUM_PLAYERS = this.stdin.nextInt();
             if (this.NUM_PLAYERS > 5 || this.NUM_PLAYERS < 1) {
-                System.out.println("Please enter a number between 1-5");
+                newView.display("Please enter a number between 1-5");
             }
         } while(this.NUM_PLAYERS > 5 || this.NUM_PLAYERS < 1);
 
@@ -88,25 +107,25 @@ public class gameRules {
         }
 
     }
-    public void dealStartingCards() {
-        System.out.println("");
-        System.out.println("Dealing starting Island and Climate Cards to all players...");
-        System.out.println("");
+    public void dealStartingCards(){
+
+        newView.display("");
+        newView.display("Dealing starting Island and Climate Cards to all players...");
+        newView.display("");
         int currentPlayer = 1;
-
-        for(int nextPlayer = 0; nextPlayer < this.NUM_PLAYERS; ++nextPlayer) {
-            System.out.println("Current player = " + currentPlayer + " Total players = " + this.NUM_PLAYERS);
-            ++currentPlayer;
-            this.players[nextPlayer].addToHand(ClimateCard.randomDrawCard());
-            this.players[nextPlayer].addToHand(IslandCard.randomDrawCard());
-            System.out.println(this.players[nextPlayer].viewHand());
+        for(int nextPlayer = 0; nextPlayer < NUM_PLAYERS; nextPlayer++){
+            newView.display("Current player = " + currentPlayer + " Total players = " + NUM_PLAYERS);
+            currentPlayer += 1;
+            players[nextPlayer].addToHand(cardDeck.randomDrawClimateCard());
+            players[nextPlayer].addToHand(cardDeck.randomDrawIslandCard());
+            newView.display(players[nextPlayer].viewHand());
         }
-
     }
 
     private void exit(){
-        System.out.println("Thank you for playing");
-        System.out.println("Game ending...");
+
+        newView.display("Thank you for playing");
+        newView.display("Game ending...");
         System.exit(0);
     }
 }
