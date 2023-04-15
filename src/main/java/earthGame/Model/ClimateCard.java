@@ -26,7 +26,10 @@ public class ClimateCard extends Card {
         abilityColor = "";
     }
 
-
+    /**
+     * Initializes a Climate Card based on the given name
+     * @param name - Name of the card based of the Climate enum
+     */
     public ClimateCard(String name){
         //convert the string to enum typ
         c = Climate.valueOf(name);
@@ -57,15 +60,19 @@ public class ClimateCard extends Card {
         }
     }
 
-    //Overridden toString() method to output the cards description
+    /**
+     * Overriden method to pass output of the card to view
+     * @return Formatted String output of card's info
+     */
     @Override
     public String toString(){
         return "Climate card: \nName: " + c.name() + "\nVictory Points: " + getVictoryPoints() + "\n";
     }
 
-    //function used to activate the card's victory point count implemented through a switch case that matches with the card's name
-    //victory points are added to the player's count
-
+    /**
+     * Activates the cards ability based on the color of the ability and updates the players values
+     * @param player - The current player who possesses the Climate Card to activate the ability
+     */
     //User Story: As a player when I activate my card's ability, I want the respective ability to activate and do its functionality
     public void abilityEffect(Player player){
         switch(abilityColor){
