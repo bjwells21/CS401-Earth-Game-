@@ -75,7 +75,9 @@ public class Player{
         hand.add(c);
     }
     public void addToTableau(Card c,int posX, int posY){
-        tableau[posX][posY] = c;
+        if (tableau[posX][posY] == null) {
+            tableau[posX][posY] = c;
+        }
     }
     // function to view the player's hand
     public String viewHand() {
@@ -126,4 +128,9 @@ public class Player{
     }
     public boolean isActivePlayer(){ return activePlayer;}
 
+    public void winConditionMet(){
+        if (this.isTableauFull()) {
+            finishFirst = true;
+        }
+    }
 }
