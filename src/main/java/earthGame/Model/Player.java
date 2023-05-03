@@ -11,7 +11,7 @@ public class Player{
     public Card[][] tableau;
     private boolean activePlayer, finishFirst;
     // every player has soil, compost, and Victory Points
-    private int soil, totalVPoints, compost, playerNumber, sprouts;
+    private int soil, totalVPoints, compost, playerNumber, sprouts, growth;
 
     // maybe add growthTokens?
 
@@ -145,6 +145,17 @@ public class Player{
         sprouts-=sprouts;
     }
 
+    public void addGrowth(int g){
+        growth+=g;
+    }
+
+    public int getGrowth(){
+        return growth;
+    }
+
+    public void clearPlayerGrowth(){
+        growth-=growth;
+    }
     /*public void addSproutsToTableau(int posX, int posY, int amt){
         if(tableau[posX][posY] != null){
 
