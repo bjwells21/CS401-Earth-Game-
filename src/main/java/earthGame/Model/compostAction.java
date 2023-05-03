@@ -1,7 +1,7 @@
 package earthGame.Model;
 
 public class compostAction {
-    public void compostInit(Player player, cardDeck deck, cardDeck discard, int choice){
+    public void compost(Player player, cardDeck deck, cardDeck discard, int choice){
         if (player.isActivePlayer()){
             discard.cards.add(deck.drawCard());
             player.addCompost(2);

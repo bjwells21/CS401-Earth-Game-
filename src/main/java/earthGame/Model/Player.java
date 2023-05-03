@@ -11,7 +11,7 @@ public class Player{
     public Card[][] tableau;
     private boolean activePlayer, finishFirst;
     // every player has soil, compost, and Victory Points
-    private int soil, totalVPoints, compost, playerNumber;
+    private int soil, totalVPoints, compost, playerNumber, sprouts;
 
     // maybe add growthTokens?
 
@@ -124,13 +124,30 @@ public class Player{
     }
 
     public void drawFromDeck(cardDeck deck){
-        //hand.add(deck.drawCard());
+        hand.add((Card) deck.drawCard());
     }
     public boolean isActivePlayer(){ return activePlayer;}
 
     public void winConditionMet(){
         if (this.isTableauFull()) {
             finishFirst = true;
+        }
+    }
+    public int getSprouts(){
+        return sprouts;
+    }
+
+    public void addSprouts(int s){
+        sprouts+=s;
+    }
+
+    public void clearPlayerSprouts(){
+        sprouts-=sprouts;
+    }
+
+    public void addSproutsToTableau(int posX, int posY, int amt){
+        if(tableau[posX][posY] != null){
+
         }
     }
 }
