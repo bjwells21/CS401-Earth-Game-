@@ -145,9 +145,9 @@ public class Player{
         sprouts-=sprouts;
     }
 
-    public void addSproutsToTableau(int posX, int posY, int amt){
+    /*public void addSproutsToTableau(int posX, int posY, int amt){
         if(tableau[posX][posY] != null){
 
         }
-    }
+    }*/
 }
