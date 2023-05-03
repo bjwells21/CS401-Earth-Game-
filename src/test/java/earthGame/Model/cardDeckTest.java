@@ -59,7 +59,7 @@ class cardDeckTest<T> {
 
         cardDeck deck = new cardDeck();
         deck.buildDeck(sampleDeck.size(), sampleDeck);
-        sampleCard newCard = (sampleCard) deck.drawCard(deck);
+        sampleCard newCard = (sampleCard) deck.drawCard();
         assertTrue(newCard.cardValue == 7);
 
     }

@@ -39,13 +39,13 @@ public class cardDeck<T> {
         return cards.size();
     }
 
-    T drawCard(cardDeck cards){
+    T drawCard(){
        if(isDeckEmpty()){
-           //call a View class method here
+
            throw new RuntimeException("Cannot draw from a empty deck");
        }
        else{
-           return this.cards.remove(0);
+           return cards.remove(0);
        }
     }
 

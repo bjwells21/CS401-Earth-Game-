@@ -23,13 +23,13 @@ class cardPultest<T> {
         newDeck.buildDeck(sampleDeck.size(),sampleDeck);
         assertEquals(2, newDeck.returnDeckSize());          //test for deck size
 
-        newCard = (IslandCard) newDeck.drawCard(newDeck);           //draws a card
+        newCard = (IslandCard) newDeck.drawCard();           //draws a card
         assertTrue(newCard.getVictoryPoints() == 3);        //checks if first card is as expected
 
         System.out.println("size of newDeck is:" + newDeck.returnDeckSize());
         System.out.println("now printing the contents of cardDeck");
         for(int i = 0; i < newDeck.returnDeckSize(); i++){
-            System.out.println(newDeck.drawCard(newDeck));
+            System.out.println(newDeck.drawCard());
         }
 
 

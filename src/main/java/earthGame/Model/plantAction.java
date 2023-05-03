@@ -33,10 +33,10 @@ public class plantAction {
         if (player.isActivePlayer() == true){
             Card[] newCards = new Card[4];
             // will revise
-            newCards[0] = (Card) deck.drawCard(deck);
-            newCards[1] = (Card) deck.drawCard(deck);
-            newCards[2] = (Card) deck.drawCard(deck);
-            newCards[3] = (Card) deck.drawCard(deck);
+            newCards[0] = (Card) deck.drawCard();
+            newCards[1] = (Card) deck.drawCard();
+            newCards[2] = (Card) deck.drawCard();
+            newCards[3] = (Card) deck.drawCard();
             // have to prompt user in view for card they want to keep
             keepOneCard(newCards,0,player);
         } else {

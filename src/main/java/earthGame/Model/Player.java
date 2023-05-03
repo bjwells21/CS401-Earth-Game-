@@ -24,6 +24,7 @@ public class Player{
         playerNumber = playerNum;
         finishFirst = false;
         tableau = new Card[4][4];
+        island = new IslandCard();
     }
     // function to add to the player's compost
     public void addCompost(int numCompost){
@@ -122,8 +123,13 @@ public class Player{
     }
 
     public void drawFromDeck(cardDeck deck){
-        //hand.add(deck.drawCard());
+
+        hand.add((Card) deck.drawCard());
     }
     public boolean isActivePlayer(){ return activePlayer;}
+    public void setIsland(Card starterIsland){
+        island = starterIsland;
+
+    }
 
 }

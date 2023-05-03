@@ -93,19 +93,14 @@ public class gameRules {
 
         newView.display("Game will now begin...");
 
-        do {
-            newView.display("Enter number of players (1-5): ");
-            this.NUM_PLAYERS = this.stdin.nextInt();
-            if (this.NUM_PLAYERS > 5 || this.NUM_PLAYERS < 1) {
-                newView.display("Please enter a number between 1-5");
-            }
-        } while(this.NUM_PLAYERS > 5 || this.NUM_PLAYERS < 1);
-
-        this.players = new Player[this.NUM_PLAYERS];
+        NUM_PLAYERS = 2;
+        this.players = new Player[NUM_PLAYERS];
 
         for(int playerIndex = 0; playerIndex < this.NUM_PLAYERS; ++playerIndex) {
             this.players[playerIndex] = new Player(0, playerIndex);
         }
+        newView.display("you are player 1");
+        currentPlayer = 0;      //0th index
 
     }
     public void dealStartingCards(){
@@ -113,15 +108,46 @@ public class gameRules {
         newView.display("");
         newView.display("Dealing starting Island and Climate Cards to all players...");
         newView.display("");
-        int currentPlayer = 1;
+
         for(int nextPlayer = 0; nextPlayer < NUM_PLAYERS; nextPlayer++){
-            newView.display("Current player = " + currentPlayer + " Total players = " + NUM_PLAYERS);
-            currentPlayer += 1;
-            players[nextPlayer].addToHand(cardDeck.randomDrawClimateCard());
-            players[nextPlayer].addToHand(cardDeck.randomDrawIslandCard());
-            newView.display(players[nextPlayer].viewHand());
+            newView.display("dealing cards to player " + (nextPlayer + 1));
+            //perhaps have a arraylist of random climate and island cards?
+
+            //players[nextPlayer].addToHand(cardDeck.randomDrawClimateCard());
+            //players[nextPlayer].addToHand(cardDeck.randomDrawIslandCard());
+
+            IslandCard starterIsland = cardDeck.randomDrawIslandCard();
+            players[currentPlayer].setIsland(cardDeck.randomDrawIslandCard());
+            starterIsland.abilityEffect(players[currentPlayer]);//play the players island ability (since its black)
+            /*
+            player must draw, compost, and add x soil.
+            1) Draw will be a cardDeck of some random cards, added to player hand
+            2) player will then examine hand and choose which cards to compost. This will probably call a compost func
+            3) simply add X soil. Done via IslandCard class?
+             */
+
+            //create a deck of random cards made of 200+ cards
+            int IslanddrawCount = 4;
+            for(int i = 0; i < IslanddrawCount; i++){
+
+                Card drawnCard = cardDeck.randomDrawClimateCard();
+                players[currentPlayer].addToHand(drawnCard);
+            }
+            // to enquire: have player card (1st card is ... 2nd card is... etc)
+            newView.display("Island card drew: " + players[currentPlayer].getHandSize() + " cards");
+            newView.display("current hand: " + players[currentPlayer].viewHand());
+            newView.display("please compost 3 cards");
+            //code here to compost player hands
+            starterIsland.initialEffect(players[currentPlayer]);
+
+            exit();
+
+
         }
+
     }
+
+
 
     private void exit(){
 
@@ -129,4 +155,6 @@ public class gameRules {
         newView.display("Game ending...");
         System.exit(0);
     }
+
+
 }
